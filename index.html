@@ -55,6 +55,21 @@ h1 { font-family: var(--display); font-weight: 400; font-size: clamp(52px, 10vw,
 @media (max-width: 900px) { .latest-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; } }
 @media (max-width: 480px) { .latest-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; } .latest { padding: 18px 16px 22px; } }
 
+/* 方格子專欄 */
+.column { margin-bottom: 36px; }
+.column-head { display: flex; justify-content: space-between; align-items: baseline; gap: 8px 16px; flex-wrap: wrap; margin-bottom: 8px; }
+.column h2 { font-family: var(--display); font-weight: 400; font-size: 26px; margin: 0; display: flex; align-items: baseline; gap: 12px; flex-wrap: wrap; }
+.column h2 small { font-family: var(--body); font-size: 13px; color: var(--ink-soft); }
+.more { font-family: var(--display); color: var(--stamp); text-decoration: none; }
+.more:hover { text-decoration: underline; }
+.posts { list-style: none; margin: 0; padding: 0; border-top: 2px dashed var(--line); }
+.posts li { border-bottom: 2px dashed var(--line); }
+.posts a { display: grid; grid-template-columns: 7.5em minmax(0, 1fr); gap: 4px 16px; padding: 12px 4px; color: var(--ink); text-decoration: none; }
+.posts a:hover .t { color: var(--stamp); }
+.posts .d { font-size: 13px; color: var(--ink-soft); font-variant-numeric: tabular-nums; padding-top: 2px; }
+.posts .t { font-weight: 500; line-height: 1.6; }
+@media (max-width: 480px) { .posts a { grid-template-columns: 1fr; } }
+
 /* 類型選單 */
 .filter { position: sticky; top: 0; z-index: 5; background: var(--paper); border-block: 2px solid var(--ink); }
 .filter .wrap { display: flex; gap: 8px; overflow-x: auto; padding-block: 12px; scrollbar-width: thin; }
@@ -124,6 +139,8 @@ footer p { margin: 0 0 4px; }
       <ul class="social" aria-label="社群連結">
         <li><a href="https://www.instagram.com/tltd.life/" target="_blank" rel="noopener">Instagram</a></li>
         <li><a href="https://www.facebook.com/share/1EswAoChVg/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.threads.com/@tltd.life" target="_blank" rel="noopener">Threads</a></li>
+        <li><a href="https://vocus.cc/salon/65364e47fd89780001c37df9" target="_blank" rel="noopener">方格子專欄</a></li>
       </ul>
     </div>
   </div>
@@ -133,6 +150,16 @@ footer p { margin: 0 0 4px; }
   <div class="latest">
     <h2 id="latest-h">最新譯作 <small id="latest-note"></small></h2>
     <ul class="grid latest-grid" id="latest"></ul>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="column-h">
+  <div class="column">
+    <div class="column-head">
+      <h2 id="column-h">小譯者的日常 <small>方格子專欄</small></h2>
+      <a class="more" href="https://vocus.cc/salon/65364e47fd89780001c37df9" target="_blank" rel="noopener">看全部文章 →</a>
+    </div>
+    <ul class="posts" id="posts"></ul>
   </div>
 </section>
 
@@ -258,7 +285,27 @@ footer p { margin: 0 0 4px; }
 }
 </script>
 
+<!-- 方格子專欄最新文章。欄位：[日期, 標題, 網址] -->
+<script id="column-data" type="application/json">
+[
+["2026-08-31","公共出借權試辦計畫第三期結算","https://vocus.cc/article/6a9559f7fd897800018119d8"],
+["2026-08-01","關於日文中對媽媽的稱呼：「お母さん」の呼び方","https://vocus.cc/article/6a6d7ac9fd897800017347f1"],
+["2026-07-16","【小譯者觀點】從銀色夏生詩集《宛如澄澈夜空》看譯者的詮釋範圍","https://vocus.cc/article/6a51e776fd897800019d7565"]
+]
+</script>
+
 <script>
+(function () {
+  var posts = JSON.parse(document.getElementById('column-data').textContent);
+  var ul = document.getElementById('posts');
+  posts.slice(0, 3).forEach(function (p) {
+    var li = document.createElement('li');
+    var a = document.createElement('a'); a.href = p[2]; a.target = '_blank'; a.rel = 'noopener';
+    var d = document.createElement('span'); d.className = 'd'; d.textContent = p[0].replace(/-/g, '.');
+    var t = document.createElement('span'); t.className = 't'; t.textContent = p[1];
+    a.appendChild(d); a.appendChild(t); li.appendChild(a); ul.appendChild(li);
+  });
+})();
 (function () {
   var data = JSON.parse(document.getElementById('book-data').textContent);
   var books = data.books.map(function (b) {
