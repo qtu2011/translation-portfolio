@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>涂紋凰（ト ブンオウ）｜日本語通訳・翻訳</title>
+<meta name="description" content="台湾を拠点とする日本語通訳・翻訳者、涂紋凰（ト ブンオウ）。商談通訳・アテンド通訳を承ります。日本の書籍の翻訳書は100冊以上。">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Huninn&family=Noto+Sans+JP:wght@400;500;700&family=Noto+Sans+TC:wght@400;500;700&display=swap">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+  :root { --body: "Noto Sans JP", "Noto Sans TC", "Hiragino Sans", "Yu Gothic", sans-serif; }
+</style>
+</head>
+<body>
+
+<nav class="wrap topbar" aria-label="言語"><a href="../" lang="zh-Hant">中文</a><a href="./" aria-current="page" lang="ja">日本語</a></nav>
+
+<header class="wrap masthead">
+  <div>
+    <p class="eyebrow">TU WEN-HUANG ／ INTERPRETER &amp; TRANSLATOR</p>
+    <h1><ruby>涂<rt>ト</rt></ruby> <ruby>紋凰<rt>ブンオウ</rt></ruby></h1>
+    <p class="role"><span>日本語通訳・翻訳</span><span>日本語・中国語</span></p>
+  </div>
+  <div class="about">
+    <p>台湾を拠点に、日本語と中国語の通訳・翻訳をしています。<span id="since"></span>年から日本の書籍の翻訳を手がけ、これまでに <b id="total"></b> 冊の翻訳書が台湾で出版されています。</p>
+    <p>小説やミステリーから、ビジネス、健康、デザイン、旅行まで、幅広い分野の書籍を翻訳してきました。</p>
+    <div class="contact">
+      <dl>
+        <dt>メール</dt>
+        <dd id="email"><a href="mailto:qtu2011@gmail.com">qtu2011@gmail.com</a></dd>
+      </dl>
+      <ul class="social" aria-label="SNS">
+        <li><a href="https://www.instagram.com/tltd.life/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1EswAoChVg/" target="_blank" rel="noopener">Facebook</a></li>
+        <li><a href="https://www.threads.com/@tltd.life" target="_blank" rel="noopener">Threads</a></li>
+      </ul>
+    </div>
+  </div>
+</header>
+
+<section class="wrap" aria-labelledby="svc-h">
+  <div class="services">
+    <h2 id="svc-h">通訳サービス</h2>
+    <ul class="svc">
+      <li>
+        <h3>商談通訳</h3>
+        <p>台湾企業との商談、打ち合わせ、会議での通訳を担当します。</p>
+      </li>
+      <li>
+        <h3>アテンド通訳</h3>
+        <p>視察、展示会、出張などに同行し、移動中や現場でのやりとりを通訳します。</p>
+      </li>
+    </ul>
+    <dl class="facts">
+      <dt>対応言語</dt><dd>日本語・中国語（台湾華語）</dd>
+      <dt>対応エリア</dt><dd>台湾</dd>
+      <dt>お問い合わせ</dt><dd>メールでご依頼内容・日程・場所をお知らせください。<br><a href="mailto:qtu2011@gmail.com">qtu2011@gmail.com</a></dd>
+    </dl>
+  </div>
+</section>
+
+<section class="wrap" aria-labelledby="latest-h">
+  <div class="latest">
+    <h2 id="latest-h">最新の翻訳書 <small id="latest-note"></small></h2>
+    <ul class="grid latest-grid" id="latest"></ul>
+  </div>
+</section>
+
+<section class="wrap works-intro" aria-labelledby="works-h">
+  <h2 id="works-h">翻訳実績</h2>
+  <p>台湾の出版社から刊行された翻訳書です（書名は繁体字中国語）。表紙をクリックすると、台湾の書店サイト「博客來」の書籍ページが開きます。</p>
+</section>
+
+<nav class="filter" aria-label="ジャンルで絞り込む"><div class="wrap" id="chips"></div></nav>
+
+<main class="wrap" id="shelf"></main>
+
+<footer><div class="wrap">
+  <p>書籍データ最終更新：<span id="updated"></span>。書誌情報と表紙画像は博客來より。</p>
+  <p>表紙の著作権は各出版社に帰属します。</p>
+</div></footer>
+
+<script src="../data/books.js"></script>
+<script>window.SHELF_LANG = "ja";</script>
+<script src="../assets/shelf.js"></script>
+</body>
+</html>
