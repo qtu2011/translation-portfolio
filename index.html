@@ -88,6 +88,10 @@ main { padding-block: 12px 64px; }
 .meta { font-size: 13px; line-height: 1.5; color: var(--ink-soft); margin: 0; }
 .meta b { font-weight: 500; color: var(--ink); }
 
+.social { list-style: none; margin: 4px 0 0; padding: 0; display: flex; flex-wrap: wrap; gap: 8px; flex-basis: 100%; }
+.social a { display: inline-block; font-family: var(--display); font-size: 15px; color: var(--ink); text-decoration: none; border: 2px solid var(--ink); border-radius: 999px; padding: 0 14px; line-height: 1.8; }
+.social a:hover { background: var(--ink); color: var(--paper); }
+
 footer { border-top: 2px solid var(--ink); padding-block: 22px 40px; font-size: 13px; color: var(--ink-soft); }
 footer p { margin: 0 0 4px; }
 
@@ -116,6 +120,11 @@ footer p { margin: 0 0 4px; }
         <!-- 電子信箱：要換信箱時改下面這行 -->
         <dd id="email"><a href="mailto:qtu2011@gmail.com">qtu2011@gmail.com</a></dd>
       </dl>
+      <!-- 社群連結：要新增時照同樣格式加一行 <li> -->
+      <ul class="social" aria-label="社群連結">
+        <li><a href="https://www.instagram.com/tltd.life/" target="_blank" rel="noopener">Instagram</a></li>
+        <li><a href="https://www.facebook.com/share/1EswAoChVg/" target="_blank" rel="noopener">Facebook</a></li>
+      </ul>
     </div>
   </div>
 </header>
